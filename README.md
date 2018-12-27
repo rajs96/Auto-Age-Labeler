@@ -5,3 +5,6 @@ The project is for a company called Neurolex Labs. Neurolex analyzes voice sampl
 
 ## Data
 The name of the dataset is called the Common Voice Dataset by Mozilla. It contains about 200,000 voice samples. It contains the feature we are interested in, which is the age of the speaker. In order to featurize this audio data, we will be using two Python libraries: pyAudioAnalysis and Librosa. 
+
+## Results
+For results and more detailed information on methodology, check the "Reports" folder
