@@ -3,6 +3,8 @@ audio_testing_data_cleaned.csv
 audio_training_data_cleaned.csv
 cnn.py
 labels.txt
+MLP_Model1.h5
+MLP_Model2.h5
 save_np_arr_and_labels.py
 save_np_arr_and_labels_test.py
 testing_feature_arr.npy
@@ -15,7 +17,11 @@ training_data_not_reshaped_small.bz2
 training_feature_arr.npy
 training_labels.pickle
 training_feature_arr_MLP.npy
+training_feature_arr_MLP_Model1.npy
+training_feature_arr_MLP_Model2.npy
 testing_feature_arr_MLP.npy
+testing_feature_arr_MLP_Model1.npy
+testing_feature_arr_MLP_Model2.npy
 training_labels_MLP.npy
 testing_labels_MLP.npy
 y_test_ohe.pickle

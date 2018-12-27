@@ -48,7 +48,7 @@ y_test_ohe = one_hot_encode(y_test,possible_labels)
 # now save the numpy arrays to disk
 np.save('training_feature_arr_MLP.npy',X_train)
 np.save('testing_feature_arr_MLP.npy',X_test)
-np.save('training_labels_MLP.npy',y_train)
-np.save('testing_labels_MLP.npy',y_test)
+np.save('training_labels_MLP.npy',y_train_ohe)
+np.save('testing_labels_MLP.npy',y_test_ohe)
 
 
