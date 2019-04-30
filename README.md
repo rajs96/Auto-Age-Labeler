@@ -15,3 +15,5 @@ There have been updates/revisions made to some of the modeling since the reports
 Examples of updates made since then:
 - Validation against a validation set
 - Use of a standard scaler to normalize the data
+- Better testing accuracy
+
