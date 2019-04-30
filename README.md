@@ -8,3 +8,10 @@ The name of the dataset is called the Common Voice Dataset by Mozilla. It contai
 
 ## Results
 For results and more detailed information on methodology, check the "Reports" folder
+
+## Important note:
+There have been updates/revisions made to some of the modeling since the reports were created. 
+
+Examples of updates made since then:
+- Validation against a validation set
+- Use of a standard scaler to normalize the data
