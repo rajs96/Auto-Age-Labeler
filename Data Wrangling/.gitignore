@@ -16,5 +16,6 @@ data_test.pickle
 Data Cleaning - Validation Set.ipynb
 labels.txt
 pyaudio_featurize.py
+pyaudio_featurize.pyc
 training_data_and_labels.pickle
 
