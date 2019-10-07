@@ -1,0 +1,12 @@
+version:'3'
+
+services:
+
+  server:
+    container_name: flask_backend
+    restart: always
+    build:
+      context: ./webapp/server
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
