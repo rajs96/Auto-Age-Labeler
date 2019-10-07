@@ -11,17 +11,7 @@ Here, in order to help solve this problem, we create a model that can predict th
 ## Data
 We're going to use the Common Voice Dataset that was curated by Mozilla. It has a total of 200,000 samples, but only about 74,000 are labeled with age.
 
-## Directory Structure
-```bash
-├── Data Wrangling              # Feature extraction, engineering
-├── Exploratory Data Analysis   # Data visualization
-├── Modeling                    # Feature selection, predictive modeling
-├── Presentation                # Slide deck for demo presentation to NeuroLex
-├── Reports                     # Reports written in late 2018
-```
 
-## Results
-For results and more detailed information on methodology, check the "Reports" folder
 
 ## Important note (as of October 2019):
 This repo is being modified, and integrated into a new application, and so
