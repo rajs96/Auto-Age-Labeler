@@ -4,17 +4,14 @@ import os
 from config import Development
 from utils import allowed_file
 
-app = Flask(__name__,static_folder='../static')
+app = Flask(__name__)
 
 # Define the allowed extensions for the file
 ALLOWED_EXTENSIONS = ['mp3']
 
 # Define root path for the application
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-# index route
-@app.route('/',methods=['GET'])
-def index():
-    return render_template('index.html')
+
 
 @app.route('/audiofile',methods=['POST'])
 def download_csv():

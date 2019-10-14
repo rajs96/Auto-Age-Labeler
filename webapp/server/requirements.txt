@@ -1,0 +1,13 @@
+Flask
+tensorflow
+numpy==1.16
+matplotlib
+scipy
+scikit-learn==0.20.3
+keras
+pathlib==1.0.1
+python-magic==0.4.15
+eyed3==0.8.10
+libmagic==1.0
+pydub == 0.23.1
+pyAudioAnalysis==0.2.5
