@@ -19,7 +19,7 @@ const Description = (props) => {
       <Typography className = {props.classes.root}>
         Here I'm going to describe some of the uses of this application
         and how it relates to segmenting audio samples. Blah blah
-        Upload your file and jawn. FOurth change
+        Upload your file and jawn. Docker change
       </Typography>
     </Fragment>
   );
