@@ -1,37 +1,15 @@
-from flask import Flask, render_template,request,Response
-import time
+# script that creates the app
+from flask import Flask
 import os
-from config import Development
-from utils import allowed_file
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-# Define the allowed extensions for the file
-ALLOWED_EXTENSIONS = ['mp3']
+    from routes.files import file_api as file_blueprint
 
-# Define root path for the application
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+    app.register_blueprint(file_blueprint, url_prefix='/api')
 
-
-@app.route('/audiofile',methods=['POST'])
-def download_csv():
-    """Takes in uploaded files and creates a csv with associated
-    age labels
-    """
-    print(request.method)
-    if request.method == 'POST':
-
-
-        #target = os.path.join(APP_ROOT,app.config['UPLOAD_FOLDER'])
-        file = request.files['file']
-        if file and allowed_file(file.filename):
-            return Response("successfully got file",201)
-            time.sleep(5)
-        else:
-            return Response("wrong file type",404)
-
-    return Response("something went wrong",404)
-
-
+    return app
 if __name__ == '__main__':
+    app = create_app()
     app.run(host='0.0.0.0')

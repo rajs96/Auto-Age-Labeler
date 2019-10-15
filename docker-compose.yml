@@ -1,16 +1,17 @@
 version: '3.7'
 
 services:
-  server:
+
+  api:
     container_name: rest-api
     restart: always
     build:
       context: ./webapp/server
       dockerfile: Dockerfile
-    ports:
-      - "5000:80"
     volumes:
       - ./webapp/server:/app
+    ports:
+      - "5000:5000"
 
   client:
     container_name: react-frontend
@@ -20,7 +21,15 @@ services:
     volumes:
       - ./webapp/client:/app
       - '/app/node_modules'
+
+  nginx:
+    restart: always
+    container_name: nginx-server
+    build:
+      context: ./webapp/nginx
+      dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"
+      - "4000:80"
     depends_on:
-      - "server"
+      - "api"
+      - "client"

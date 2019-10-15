@@ -42,7 +42,7 @@ class FileUpload extends Component {
       let form_data = new FormData($('#upload-file')[0]);
       $.ajax({
           type:'POST',
-          url:'/audiofile',
+          url:'/api/audiofile',
           data: {test:'test'},
           contentType: false,
           cache: false,
