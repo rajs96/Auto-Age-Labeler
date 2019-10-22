@@ -1,25 +1,25 @@
 # Modeling
 
-[Preprocessing](#prep)
-[Feature Selection](#feat_select)
-[Model Selection](#model_select)
-[Results](#res)
+1. [Preprocessing](#prep)
+2. [Feature Selection](#feat_select)
+3. [Model Selection](#model_select)
+4. [Results](#res)
 
 <a name = "prep"></a>
-## Preprocessing
+1. ## Preprocessing
 ### Standard Scaler
 
 <a name = "feat_select"></a>
-## Feature Selection
+2. ## Feature Selection
 ### L1 Feature Selection
 ### Tree-based Feature Selection
 ### Chi Squared Feature Selection
 
 <a name = "model_select"></a>
-## Model Selection
+3. ## Model Selection
 ### Architecture Development
 ### Hyperparameter Tuning
 
 <a name = "res"></a>
-## Results
+4. ## Results
 ### Performance metrics
