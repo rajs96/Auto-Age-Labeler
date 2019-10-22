@@ -14,6 +14,7 @@
 ### L1 Feature Selection
 ### Tree-based Feature Selection
 ### Chi Squared Feature Selection
+### PCA Feature Selection
 
 <a name = "model_select"></a>
 ## 3. Model Selection
