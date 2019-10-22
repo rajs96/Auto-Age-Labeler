@@ -1,5 +1,13 @@
 # Modeling
 
-## Feature Selection
+## Preprocessing
+### Standard Scaler
 
-## Model selection/results
+## Feature Selection
+### L1 Feature Selection
+### Tree-based Feature Selection
+### Chi Squared Feature Selection
+
+## Model selection
+### Architecture Development
+### Hyperparameter Tuning
