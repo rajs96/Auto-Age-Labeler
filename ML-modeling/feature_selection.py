@@ -12,7 +12,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import SelectFromModel,SelectKBest,chi2
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.preprocessing import MinMaxScaler
-from sklearn import PCA
+from sklearn.decomposition import PCA
 
 
 def lasso_feature_selection(X,y,penalty=0.01,model='svm',threshold=0.3):
@@ -79,12 +79,11 @@ def chi_squared_feature_selection(X,y,k=80):
     X_transformed = transformer.fit_transform(X_scaled,y)
     return (X_transformed,transformer)
 
-def pca_feature_selection(X,y,k=80):
+def pca_feature_selection(X,k=80):
     """Function that returns dataset k principal components selected
 
     Args:
         X -- training dataset for inputs
-        y -- training dataset for outputs
         k -- number of features to select
 
     Returns:
