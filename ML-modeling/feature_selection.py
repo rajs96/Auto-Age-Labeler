@@ -2,10 +2,6 @@
 ## number of features. Common feature selection
 ## methods from sklearn are included.
 
-# Feature selection methods to try
-# 1.) L1-based feature selection
-# 2.) chi-square feature selection
-# 3.) tree based feature selection
 
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
