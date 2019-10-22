@@ -13,6 +13,7 @@ MLP_Model2.h5
 MLP_Model3_featureSelector.pickle
 MLP_Model3_standardScaler.pickle
 multiclass_results_fn.pyc
+__pycache__
 reshape_feature_arrays.py
 save_np_arr_and_labels.py
 save_np_arr_and_labels_test.py
