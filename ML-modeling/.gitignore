@@ -10,8 +10,14 @@ labels.txt
 Keras_CNN.ipynb
 MLP_Model1.h5
 MLP_Model2.h5
+MLP_Model3.h5
 MLP_Model3_featureSelector.pickle
 MLP_Model3_standardScaler.pickle
+labels_preprocess_CNN.py
+MLP Model Results.ipynb
+MLP_Model3_Results.ipynb
+Multilayer_Perceptron_Model_1_Keras.ipynb
+Multilayer_Perceptron_Model_2_Keras.ipynb
 multiclass_results_fn.pyc
 __pycache__
 reshape_feature_arrays.py
