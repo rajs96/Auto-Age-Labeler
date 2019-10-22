@@ -11,6 +11,7 @@ from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import SelectFromModel,SelectKBest,chi2
 from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.preprocessing import MinMaxScaler
 
 
 def lasso_feature_selection(X,y,penalty=0.01,model='svm',threshold=0.3):
@@ -69,7 +70,10 @@ def chi_squared_feature_selection(X,y,k=80):
         X_transformed (tuple) -- new dataset with features selected, along
         with object that transforms the data
     """
-    transformer = SelectKbest(chi2,k=k)
-    X_transformed = transformer.fit_transform(X,y)
-    X_transformed = SelectKBest(chi2,k=k).fit_transform(X,y)
+
+    # need to min max scale data first because Chi2 doesn't take negative values
+    min_max_scaler = MinMaxScaler()
+    X_scaled = min_max_scaler.fit_transform(X)
+    transformer = SelectKBest(chi2,k=k)
+    X_transformed = transformer.fit_transform(X_scaled,y)
     return (X_transformed,transformer)

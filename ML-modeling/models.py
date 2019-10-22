@@ -8,8 +8,8 @@ def baseline_model(output_classes=8):
     """Returns a very simple keras classification model
     """
     model = Sequential()
-    model.add(Dense(10,activation='relu'))
-    model.add(Dropout(0.3))
+    model.add(Dense(20,activation='relu'))
+    model.add(Dropout(0.25))
     model.add(Dense(output_classes,activation='softmax'))
 
     model.compile(loss='categorical_crossentropy',optimizer='adam',
