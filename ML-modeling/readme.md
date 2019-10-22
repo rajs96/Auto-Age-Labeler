@@ -6,20 +6,20 @@
 4. [Results](#res)
 
 <a name = "prep"></a>
-1. ## Preprocessing
+## 1. Preprocessing
 ### Standard Scaler
 
 <a name = "feat_select"></a>
-2. ## Feature Selection
+## 2. Feature Selection
 ### L1 Feature Selection
 ### Tree-based Feature Selection
 ### Chi Squared Feature Selection
 
 <a name = "model_select"></a>
-3. ## Model Selection
+## 3. Model Selection
 ### Architecture Development
 ### Hyperparameter Tuning
 
 <a name = "res"></a>
-4. ## Results
+## 4. Results
 ### Performance metrics
