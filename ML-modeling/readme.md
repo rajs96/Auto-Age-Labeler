@@ -44,7 +44,6 @@ feature selection approach when moving over to the more complex model.
 <a name = "model_select"></a>
 ## 3. Model Selection
 ### Architecture Development
-Coming soon.
 ### Hyperparameter Tuning
 Coming soon.
 
