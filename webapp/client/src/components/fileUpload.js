@@ -39,11 +39,16 @@ class FileUpload extends Component {
       // send file to the server
 
       // create FormData object based on current state's file
-      let form_data = new FormData($('#upload-file')[0]);
+      let formHtml = document.getElementById('upload-file')
+      let formData = new FormData(formHtml)
+
+      console.log(formData)
+      console.log(formHtml)
+
       $.ajax({
           type:'POST',
-          url:'/api/audiofile',
-          data: {test:'test'},
+          url:'/api/upload',
+          data: formData,
           contentType: false,
           cache: false,
           processData:false,
@@ -51,7 +56,6 @@ class FileUpload extends Component {
             this.setState({loading:true});
           },
           success: (data)=>{
-              console.log(data)
               this.setState({loading:false});
               console.log("successfully uploaded file");
           },
@@ -64,11 +68,11 @@ class FileUpload extends Component {
   render(){
     return (
       <div className = {this.props.classes.paper}>
-        <form id = "upload-file" method = "post" encType = "multipart/form-data">
+        <form id="upload-file" method="post" encType="multipart/form-data">
           <div className = {this.props.classes.formItem}>
             <FormControl>
-              <InputLabel htmlFor = "file-upload"></InputLabel>
-              <Input id = "file-upload" type="file"></Input>
+                <InputLabel id = "test" htmlFor="file"></InputLabel>
+                <Input name="file" type="file" multiple></Input>
             </FormControl>
           </div>
           <div className = {this.props.classes.formItem}>
@@ -84,8 +88,6 @@ class FileUpload extends Component {
             </FormControl>
           </div>
         </form>
-        <LoadingIcon loading = {this.state.loading} />
-        <ErrorMessage error = {this.state.error} />
       </div>
     )
   }
