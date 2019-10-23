@@ -46,7 +46,7 @@ def tree_based_feature_selection(X,y,n_estimators=50):
         n_estimators -- number of trees used in the feature selector
 
     Returns:
-        X_transformed,clf (tuple) -- new dataset with features selected, along
+        X_transformed,model (tuple) -- new dataset with features selected, along
         with object that transforms the data
     """
     tree_model = ExtraTreesClassifier(n_estimators=n_estimators)

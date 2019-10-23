@@ -8,9 +8,17 @@ file_api = Blueprint('file_api',__name__)
 
 @file_api.route('/upload',methods=['GET','POST'])
 def generate_csv():
+    # only do this on a post request
     if request.method == 'POST':
         files = request.files.getlist("file")
-        print("we got here!")
         print(files)
+
+        # this is where we will temporarily store the files
+        target = os.path.join(APP_ROOT,app.config['UPLOAD_FOLDER'])
+
+        # if it's not already there
+        if not os.path.isdir(target):
+            os.mkdir(target)
+
         return Response("Got list of files",201)
     return Response("Error getting files",400)
