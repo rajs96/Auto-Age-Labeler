@@ -9,7 +9,7 @@ file_api = Blueprint('file_api',__name__)
 @file_api.route('/upload',methods=['GET','POST'])
 def generate_csv():
     if request.method == 'POST':
-        files = request.files["file"]
+        files = request.files.getlist("file")
         print("we got here!")
         print(files)
         return Response("Got list of files",201)
