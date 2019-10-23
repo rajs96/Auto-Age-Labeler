@@ -72,7 +72,7 @@ class FileUpload extends Component {
           <div className = {this.props.classes.formItem}>
             <FormControl>
                 <InputLabel id = "test" htmlFor="file"></InputLabel>
-                <Input name="file" type="file" multiple></Input>
+                <Input name="file" type="file" inputProps ={{multiple: true}}></Input>
             </FormControl>
           </div>
           <div className = {this.props.classes.formItem}>
