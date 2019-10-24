@@ -4,6 +4,8 @@ from ml_models.neural_network import model_predict
 from werkzeug.utils import secure_filename
 from utils import allowed_file, pyaudio_featurize
 import os
+import pandas as pd
+import shutil
 
 # Save File REST API as Blueprint
 file_api = Blueprint('file_api',__name__)
@@ -23,12 +25,18 @@ def generate_csv():
         if not os.path.isdir(target):
             os.mkdir(target)
 
+        # create a list of filenames
+        filenames = list()
+
+        # create a list of predictions
+        predictions = list()
         if files:
             for file in files:
                 if allowed_file(file.filename):
                     # save the file to the system
                     filename = secure_filename(file.filename)
                     destination = os.path.join(target,filename)
+                    filenames.append(filename)
                     file.save(destination)
 
                     # featurize the audio file into 170 features using pyAudioAnalysis
@@ -37,9 +45,19 @@ def generate_csv():
                     # reshape to row vector of proper shape
                     features = features.reshape(-1,1).T
 
-                    print(features.shape)
+                    # get model prediction
+                    prediction = model_predict(features)
 
+                    # append to list of predictions
+                    predictions.append(prediction)
 
+        # now make the dataframe
+        prediction_df = pd.DataFrame({'filename':filenames,'age':predictions})
+
+        print(prediction_df)
+
+        # remove the directory of files
+        shutil.rmtree(target)
 
 
 

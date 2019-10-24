@@ -30,7 +30,7 @@ def model_predict(input):
     # make sure we get in a numpy matrix for the features
     assert isinstance(input,np.ndarray)
     # feature selection
-    features = feature_selector.transform(features)
+    features = feature_selector.transform(input)
 
     # standard scale the data
     features = scaler.transform(features)
