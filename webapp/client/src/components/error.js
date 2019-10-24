@@ -22,7 +22,6 @@ class ErrorMessage extends Component {
         anchorOrigin={{vertical:'bottom',horizontal:'left'}}
         open = {this.props.error}
         message = "Upload unsuccessful"
-        color = "secondary"
       />
     );
   }
