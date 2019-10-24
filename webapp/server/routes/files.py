@@ -50,6 +50,9 @@ def generate_csv():
 
                     # append to list of predictions
                     predictions.append(prediction)
+        # no files
+        else:
+            return Response("No file uploaded")
 
         # now make the dataframe
         prediction_df = pd.DataFrame({'filename':filenames,'age':predictions})
