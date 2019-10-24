@@ -16,9 +16,9 @@ const Description = (props) => {
   return (
     <Fragment>
       <Typography className = {props.classes.root}>
-        Here I'm going to describe some of the uses of this application
-        and how it relates to segmenting audio samples. Blah blah
-        Upload your file and jawn. Docker change
+        Differences in age creates bias in voice-based machine learning models.
+        Automatically label your voice data with age categories so you can create
+        segmented speech models that are less biased.
       </Typography>
     </Fragment>
   );
