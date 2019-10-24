@@ -1,5 +1,4 @@
-"use strict";
-import React, { Component,Fragment } from 'react';
+import React, { Fragment } from 'react';
 import {withRouter} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';

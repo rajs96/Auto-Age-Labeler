@@ -1,5 +1,4 @@
 // component for the file upload
-'use strict';
 
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
@@ -86,6 +85,8 @@ class FileUpload extends Component {
               Upload
               </Button>
             </FormControl>
+            <LoadingIcon/>
+            <ErrorMessage/>
           </div>
         </form>
       </div>

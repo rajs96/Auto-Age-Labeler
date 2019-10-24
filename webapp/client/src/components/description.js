@@ -1,5 +1,4 @@
-//'use strict';
-import React, { Component,Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 
