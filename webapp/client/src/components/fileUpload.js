@@ -85,7 +85,7 @@ class FileUpload extends Component {
               Upload
               </Button>
             </FormControl>
-            <LoadingIcon/>
+            <LoadingIcon loading = {this.state.loading}/>
             <ErrorMessage/>
           </div>
         </form>
