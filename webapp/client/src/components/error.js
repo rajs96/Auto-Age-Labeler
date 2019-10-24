@@ -13,21 +13,16 @@ const styles = () => ({
 class ErrorMessage extends Component {
   constructor(props){
     super(props);
-    this.handleClose = this.handleClose.bind(this);
   }
-  // set it to false on close
-  handleClose () {
-    //this.setState({display:false});
-  }
+
   render() {
     console.log("error state",this.state)
     return (
       <Snackbar
         anchorOrigin={{vertical:'bottom',horizontal:'left'}}
         open = {this.props.error}
-        onClose = {this.handleClose}
-        variant = "error"
-        message = "Test if this works"
+        message = "Upload unsuccessful"
+        color = "secondary"
       />
     );
   }

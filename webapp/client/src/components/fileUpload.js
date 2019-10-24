@@ -55,7 +55,7 @@ class FileUpload extends Component {
             this.setState({loading:true});
           },
           success: (data)=>{
-              this.setState({loading:false});
+              this.setState({loading:false,error:false});
               console.log("successfully uploaded file");
           },
           error: ()=>{
@@ -86,7 +86,7 @@ class FileUpload extends Component {
               </Button>
             </FormControl>
             <LoadingIcon loading = {this.state.loading}/>
-            <ErrorMessage/>
+            <ErrorMessage error = {this.state.error}/>
           </div>
         </form>
       </div>
