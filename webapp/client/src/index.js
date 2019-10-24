@@ -26,6 +26,7 @@ class App extends Component {
       )
     }
 }
+
 render(
     <App/>,
     document.getElementById('rootDiv')
