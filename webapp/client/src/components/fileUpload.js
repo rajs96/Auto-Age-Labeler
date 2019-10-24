@@ -41,9 +41,6 @@ class FileUpload extends Component {
       let formHtml = document.getElementById('upload-file')
       let formData = new FormData(formHtml)
 
-      console.log(formData)
-      console.log(formHtml)
-
       $.ajax({
           type:'POST',
           url:'/api/upload',

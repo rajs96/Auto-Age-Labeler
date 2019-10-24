@@ -32,24 +32,28 @@ def generate_csv():
         predictions = list()
         if files:
             for file in files:
-                if allowed_file(file.filename):
-                    # save the file to the system
-                    filename = secure_filename(file.filename)
-                    destination = os.path.join(target,filename)
-                    filenames.append(filename)
-                    file.save(destination)
+                # if not allowed file, skip the file
+                if not allowed_file(file.filename):
+                    print(f'{file.filename} not in correct format')
+                    continue
 
-                    # featurize the audio file into 170 features using pyAudioAnalysis
-                    features, labels = pyaudio_featurize(destination)
+                # save the file to the system
+                filename = secure_filename(file.filename)
+                destination = os.path.join(target,filename)
+                filenames.append(filename)
+                file.save(destination)
 
-                    # reshape to row vector of proper shape
-                    features = features.reshape(-1,1).T
+                # featurize the audio file into 170 features using pyAudioAnalysis
+                features, labels = pyaudio_featurize(destination)
 
-                    # get model prediction
-                    prediction = model_predict(features)
+                # reshape to row vector of proper shape
+                features = features.reshape(-1,1).T
 
-                    # append to list of predictions
-                    predictions.append(prediction)
+                # get model prediction
+                prediction = model_predict(features)
+
+                # append to list of predictions
+                predictions.append(prediction)
         # no files
         else:
             return Response("No file uploaded")

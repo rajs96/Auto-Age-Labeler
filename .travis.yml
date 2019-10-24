@@ -1,3 +1,5 @@
+# much is adopted from Stephen Grider's course:
+# https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 sudo: required
 services:
   - docker
