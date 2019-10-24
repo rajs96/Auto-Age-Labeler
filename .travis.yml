@@ -2,17 +2,13 @@ sudo: required
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION: 1.23.2
-
 before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+  - docker build -t rajs/react-test -f .webapp/client/Dockerfile.dev .webapp/client
 
-before_script:
-  - docker-compose up --build
+script:
+  - docker run rajs/react-test npm test -- --coverage
 
-after_script:
-  - docker-compose down
+after_success:
+  - docker build -t rajs/frontend ./webapp/client
+  - docker build -t rajs/proxy ./webapp/nginx
+  - docker build -t rajs/backend ./webapp/server
