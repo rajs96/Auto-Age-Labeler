@@ -5,12 +5,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t rajs/react-test -f .webapp/client/Dockerfile.dev .webapp/client
+  - docker build -t rajs966/react-test -f .webapp/client/Dockerfile.dev .webapp/client
 
 script:
-  - docker run rajs/react-test npm test -- --coverage
+  - docker run rajs966/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t rajs/frontend ./webapp/client
-  - docker build -t rajs/proxy ./webapp/nginx
-  - docker build -t rajs/backend ./webapp/server
+  - docker build -t rajs966/frontend ./webapp/client
+  - docker build -t rajs966/proxy ./webapp/nginx
+  - docker build -t rajs966/backend ./webapp/server
+  # login to Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images to docker hub
+  - docker push rajs966/frontend
+  - docker push rajs966/proxy
+  - docker push rajs966/backend
