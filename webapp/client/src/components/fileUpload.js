@@ -54,6 +54,7 @@ class FileUpload extends Component {
           success: (data)=>{
               this.setState({loading:false,error:false});
               console.log("successfully uploaded file");
+              console.log(data)
           },
           error: ()=>{
               console.log("something went wrong");

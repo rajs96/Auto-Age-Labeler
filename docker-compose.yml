@@ -17,7 +17,7 @@ services:
     container_name: react-frontend
     build:
       context: ./webapp/client
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     volumes:
       - ./webapp/client:/app
       - '/app/node_modules'
@@ -27,7 +27,7 @@ services:
     container_name: nginx-server
     build:
       context: ./webapp/nginx
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
       - "4000:80"
     depends_on:
