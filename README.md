@@ -42,6 +42,9 @@ docker-compose up --build
 - [Jim Schwoebel's Voicebook](https://github.com/jim-schwoebel/voicebook)
 - [Stephen Grider's course on Docker](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
 
+## Demo
+![gif/age-app-demo.gif]
+
 ## Further directions
 If you are interested in getting involved with machine learning for audio analysis,
 I recommend you check out [NeuroLex Labs](https://www.neurolex.ai/), which provides
