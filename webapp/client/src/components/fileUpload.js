@@ -55,6 +55,14 @@ class FileUpload extends Component {
               this.setState({loading:false,error:false});
               console.log("successfully uploaded file");
               console.log(data)
+              var csvDownload = document.createElement('a');
+              csvDownload.setAttribute('href','data:text/csv;charset=utf-8,' + encodeURI(data));
+              csvDownload.setAttribute('download','predictions.csv');
+              csvDownload.display = 'none';
+              document.body.appendChild(csvDownload);
+              csvDownload.click();
+              document.body.removeChild(csvDownload);
+
           },
           error: ()=>{
               console.log("something went wrong");
