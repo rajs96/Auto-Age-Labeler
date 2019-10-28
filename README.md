@@ -50,5 +50,5 @@ Jim Schwoebel, the CEO of NeuroLex, for giving me direction and help with this p
 
 [Behavioral Signals](https://behavioralsignals.com/) is another interesting company
 that detects emotion in voice with AI. The Director of ML at the company,
-Theodoros Giannakopoulos, developed pyAudioAnalysis, which is the library I used
+(Theodoros Giannakopoulos) developed pyAudioAnalysis, which is the library I used
 to featurize the audio data.
