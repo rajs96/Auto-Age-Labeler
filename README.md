@@ -43,7 +43,7 @@ docker-compose up --build
 - [Stephen Grider's course on Docker](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
 
 ## Demo
-![gif/age-app-demo.gif]
+![](gif/age-app-demo.gif)
 
 ## Further directions
 If you are interested in getting involved with machine learning for audio analysis,
