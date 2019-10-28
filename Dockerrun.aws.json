@@ -1,0 +1,45 @@
+{
+  "AWSEBDockerrunVersion":2,
+  "containerDefinitions": [
+    {
+      "name":"rest_api",
+      "image":"rajs966/age.labeler:api",
+      "hostname":"api",
+      "portMappings":[
+        {
+          "hostPort":5000,
+          "containerPort":5000
+        }
+      ],
+      "essential":false,
+      "memory":128
+    },
+    {
+      "name":"client",
+      "image":"rajs966/age.labeler:client",
+      "hostname":"client",
+      "portMappings":[
+        {
+          "hostPort":3000,
+          "containerPort":3000
+        }
+      ],
+      "essential":false,
+      "memory":128
+    },
+    {
+      "name":"nginx",
+      "image":"rajs966/age.labeler:nginx",
+      "hostname":"nginx",
+      "portMappings":[
+        {
+          "hostPort":80,
+          "containerPort":80
+        }
+      ],
+      "essential":true,
+      "memory":128,
+      "links":["rest_api","client"]
+    }
+  ]
+}

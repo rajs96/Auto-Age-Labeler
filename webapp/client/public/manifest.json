@@ -1,0 +1,8 @@
+{
+  "short_name": "Auto Age Labeler",
+  "name": "Automatically Labeling Voice Samples with Age",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

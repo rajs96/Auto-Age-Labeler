@@ -1,11 +1,10 @@
 # base image
-FROM node:alpine
+# much is adopted from Stephen Grider's course on Docker
+FROM node:alpine as builder
 
 # set working directory
 WORKDIR '/app'
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY ./package.json ./
@@ -13,6 +12,10 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
+# production server
+FROM nginx
 EXPOSE 3000
-# start app
-CMD ["npm", "run", "start"]
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/build /usr/share/nginx/html
