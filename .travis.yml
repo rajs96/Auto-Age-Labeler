@@ -8,7 +8,7 @@ before_install:
   - docker build -t rajs966/react-test -f ./webapp/client/Dockerfile.dev ./webapp/client
 
 script:
-  - docker run rajs966/react-test npm test -- --coverage --forceExit
+  - docker run rajs966/react-test npm test -- --coverage --forceExit --detectOpenHandles
 
 after_script:
   - docker build -t rajs966/frontend ./webapp/client
