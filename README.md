@@ -24,10 +24,31 @@ contains code for the web application, which can be run using Docker.
 ├── webapp                           # Code for Web Application
     ├── client                       # client-side code
     ├── nginx                        # Reverse proxy for routing
-    ├── server                       # Backend code                #
+    ├── server                       # Backend code                
 ├── .gitignore                       # Only push necessary files
 ├── .travis.yml                      # For eventual testing, not used yet
 ├── Dockerrun.aws.json               # For eventual deployment, not used yet
 ├── README.md                        # Readme that details the repo
 ├── docker-compose.yml               # Necessary to run the app on user machine
 ```
+
+## Running the Application with Docker
+```bash
+docker-compose up --build
+# now the app is running on localhost:4000
+```
+
+## References
+- [Jim Schwoebel's Voicebook](https://github.com/jim-schwoebel/voicebook)
+- [Stephen Grider's course on Docker](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
+
+## Further directions
+If you are interested in getting involved with machine learning for audio analysis,
+I recommend you check out [NeuroLex Labs](https://www.neurolex.ai/), which provides
+voice computing services to clients, including machine learning. A special thanks to
+Jim Schwoebel, the CEO of NeuroLex, for giving me direction and help with this project!
+
+[Behavioral Signals](https://behavioralsignals.com/) is another interesting company
+that detects emotion in voice with AI. The Director of ML at the company,
+Theodoros Giannakopoulos, developed pyAudioAnalysis, which is the library I used
+to featurize the audio data.
