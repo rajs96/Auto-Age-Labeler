@@ -3,12 +3,13 @@
   "containerDefinitions": [
     {
       "name":"rest_api",
-      "image":"rajs966/age.labeler:api",
+      "image":"rajs966/auto-age-api",
       "hostname":"api",
-      "portMappings":[
+      "portMappings":
+      [
         {
           "hostPort":5000,
-          "containerPort":5000
+          "containerPort":80
         }
       ],
       "essential":false,
@@ -16,12 +17,13 @@
     },
     {
       "name":"client",
-      "image":"rajs966/age.labeler:client",
+      "image":"rajs966/auto-age-client",
       "hostname":"client",
-      "portMappings":[
+      "portMappings":
+      [
         {
           "hostPort":3000,
-          "containerPort":3000
+          "containerPort":80
         }
       ],
       "essential":false,
@@ -29,7 +31,7 @@
     },
     {
       "name":"nginx",
-      "image":"rajs966/age.labeler:nginx",
+      "image":"rajs966/auto-age-nginx",
       "hostname":"nginx",
       "portMappings":[
         {
