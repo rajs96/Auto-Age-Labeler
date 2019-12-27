@@ -9,7 +9,7 @@
       [
         {
           "hostPort":5000,
-          "containerPort":80
+          "containerPort":5000
         }
       ],
       "essential":false,
@@ -23,7 +23,7 @@
       [
         {
           "hostPort":3000,
-          "containerPort":80
+          "containerPort":3000
         }
       ],
       "essential":false,
@@ -35,7 +35,7 @@
       "hostname":"nginx",
       "portMappings":[
         {
-          "hostPort":80,
+          "hostPort":4000,
           "containerPort":80
         }
       ],

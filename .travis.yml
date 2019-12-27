@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t rajs966/react-test -f ./webapp/client/Dockerfile.dev ./webapp/client
+  - docker build -t rajs966/react-test -f ./webapp/client/Dockerfile ./webapp/client
 
 script:
   - docker run rajs966/react-test npm test -- --coverage --forceExit --detectOpenHandles
