@@ -8,6 +8,8 @@ services:
     build:
       context: ./webapp/server
       dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
     volumes:
       - ./webapp/server:/app
 
@@ -16,6 +18,8 @@ services:
     build:
       context: ./webapp/client
       dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
     volumes:
       - ./webapp/client:/app
       - '/app/node_modules'
