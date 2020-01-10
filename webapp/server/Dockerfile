@@ -5,4 +5,4 @@ RUN apt-get update
 RUN sh -c '/bin/echo -e "Y\n" | apt-get install ffmpeg'
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD ["python","-u","app.py"]
+CMD ["gunicorn","-b","0.0.0.0:5000","app:create_app()"]

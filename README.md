@@ -12,7 +12,7 @@ age category.
 
 This repository contains notebooks that detail the entire machine learning project,
 including data preprocessing, exploratory data analysis, and modeling. It also
-contains code for the web application, which can be run using Docker.
+contains code for the frontend/API, which can be run using Docker.
 
 ## Directory Structure
 ```bash
@@ -25,9 +25,8 @@ contains code for the web application, which can be run using Docker.
     ├── client                       # client-side code
     ├── nginx                        # Reverse proxy for routing
     ├── server                       # Backend code                
-├── .gitignore                       # Only push necessary files
-├── .travis.yml                      # For eventual testing, not used yet
-├── Dockerrun.aws.json               # For eventual deployment, not used yet
+├── .gitignore                       # Only push necessary files                 
+├── Dockerrun.aws.json               # JSON for multi-container AWS deployment, not currently deployed
 ├── README.md                        # Readme that details the repo
 ├── docker-compose.yml               # Necessary to run the app on user machine
 ```
@@ -35,7 +34,7 @@ contains code for the web application, which can be run using Docker.
 ## Running the Application with Docker
 ```bash
 docker-compose up --build
-# now the app is running on localhost:4000
+# now the app is running on localhost
 ```
 
 ## References
@@ -55,3 +54,6 @@ Jim Schwoebel, the CEO of NeuroLex, for giving me direction and help with this p
 that detects emotion in voice with AI. The Director of ML at the company,
 (Theodoros Giannakopoulos) developed pyAudioAnalysis, which is the library I used
 to featurize the audio data.
+
+## Technologies Used
+![](images/technologies.png)

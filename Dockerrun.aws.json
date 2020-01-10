@@ -2,13 +2,11 @@
   "AWSEBDockerrunVersion":2,
   "containerDefinitions": [
     {
-      "name":"rest_api",
+      "name":"api",
       "image":"rajs966/auto-age-api",
       "hostname":"api",
-      "portMappings":
-      [
+      "portMappings":[
         {
-          "hostPort":5000,
           "containerPort":5000
         }
       ],
@@ -19,13 +17,6 @@
       "name":"client",
       "image":"rajs966/auto-age-client",
       "hostname":"client",
-      "portMappings":
-      [
-        {
-          "hostPort":3000,
-          "containerPort":3000
-        }
-      ],
       "essential":false,
       "memory":128
     },
@@ -35,13 +26,13 @@
       "hostname":"nginx",
       "portMappings":[
         {
-          "hostPort":4000,
+          "hostPort":80,
           "containerPort":80
         }
       ],
       "essential":true,
       "memory":128,
-      "links":["rest_api","client"]
+      "links":["api","client"]
     }
   ]
 }
