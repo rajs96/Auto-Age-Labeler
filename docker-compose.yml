@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3'
 
 services:
   api:
@@ -8,7 +8,7 @@ services:
       context: ./webapp/server
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "5001:5000"
 
   client:
     container_name: react-frontend

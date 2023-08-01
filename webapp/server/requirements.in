@@ -1,0 +1,13 @@
+Cython==0.29.24
+numpy==1.19.5
+scikit-learn==0.21.3
+pandas==1.2.0
+pyAudioAnalysis==0.2.5
+keras==2.2.5
+gunicorn
+Flask
+pathlib
+python-magic
+eyed3
+libmagic
+pydub

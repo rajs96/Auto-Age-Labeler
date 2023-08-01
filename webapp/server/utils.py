@@ -2,101 +2,101 @@
 # essentially a data preprocessing script
 
 # import required modules
+import pickle
+import os
+import json
 import numpy as np
 from pyAudioAnalysis import audioBasicIO
 from pyAudioAnalysis import audioFeatureExtraction
-import sys,json, os
-from routes import ALLOWED_EXTENSIONS
+from constants import ALL_FEATURES
+
+from typing import Any
 
 
-def stats(matrix):
+def stats(matrix: np.ndarray) -> np.ndarray:
     """Compute the mean, std dev, max, and median of matrix
     Args:
         matrix -- matrix of values
     Returns:
         output (numpy array) array of five statistical values
     """
-    mean=np.mean(matrix)
-    std=np.std(matrix)
-    maxv=np.amax(matrix)
-    minv=np.amin(matrix)
-    median=np.median(matrix)
+    mean = np.mean(matrix)
+    std = np.std(matrix)
+    maxv = np.amax(matrix)
+    minv = np.amin(matrix)
+    median = np.median(matrix)
 
-    output=np.array([mean,std,maxv,minv,median])
+    output = np.array([mean, std, maxv, minv, median])
 
     return output
 
-def convert_mono(filename):
+
+def convert_mono(filename: str) -> str:
     """Converts filename into mono
     Args:
         filename -- name of the file to be converted
     Returns:
         mono - file converted to mono form
     """
-    mono=filename[0:-4]+'_mono.wav'
-    os.system('ffmpeg -i %s -ac 1 %s'%(filename,mono))
+    mono = filename[0:-4] + "_mono.wav"
+    os.system("ffmpeg -i %s -ac 1 %s" % (filename, mono))
     return mono
+
 
 def pyaudio_featurize(file):
     # use pyaudioanalysis library to export features
     # exported as file[0:-4].json
-    filename=file
-    mono=convert_mono(filename)
+    filename = file
+    mono = convert_mono(filename)
     [Fs, x] = audioBasicIO.readAudioFile(mono)
-    F = audioFeatureExtraction.stFeatureExtraction(x, Fs, 0.050*Fs, 0.025*Fs)
+    F = audioFeatureExtraction.stFeatureExtraction(
+        x, Fs, 0.050 * Fs, 0.025 * Fs
+    )
     os.remove(mono)
 
-    data={
-        'features': F[0].tolist()
-        }
+    data = {"features": F[0].tolist()}
 
-    jsonfile=open(filename[0:-4]+'.json','w')
-    print(jsonfile)
-    json.dump(data,jsonfile)
+    jsonfile = open(filename[0:-4] + ".json", "w")
+    json.dump(data, jsonfile)
     jsonfile.close()
-
-    # os.system('python pyaudio_help.py %s'%(file))
-    jsonfile=file[0:-4]+'.json'
-    g=json.load(open(jsonfile))
-    features=np.array(g['features'])
+    jsonfile = file[0:-4] + ".json"
+    g = json.load(open(jsonfile))
+    features = np.array(g["features"])
 
     # now go through all the features and get statistical features for array
-    new_features=list()
-    all_labels=['zero crossing rate','energy','entropy of energy','spectral centroid',
-                'spectral spread', 'spectral entropy', 'spectral flux', 'spectral rolloff',
-                'mfcc1','mfcc2','mfcc3','mfcc4',
-                'mfcc5','mfcc6','mfcc7','mfcc8',
-                'mfcc9','mfcc10','mfcc11','mfcc12',
-                'mfcc13','chroma1','chroma2','chroma3',
-                'chroma4','chroma5','chroma6','chroma7',
-                'chroma8','chroma9','chroma10','chroma11',
-                'chroma12','chroma deviation']
-    labels=list()
+    new_features = []
+    labels = []
 
     for i in range(len(features)):
-        tfeature=stats(features[i])
+        tfeature = stats(features[i])
         for j in range(len(tfeature)):
             new_features.append(tfeature[j])
-            if j==0:
-                labels.append('mean '+all_labels[i])
-            elif j==1:
-                labels.append('std '+all_labels[i])
-            elif j==2:
-                labels.append('max '+all_labels[i])
-            elif j==3:
-                labels.append('min '+all_labels[i])
-            elif j==4:
-                labels.append('median '+all_labels[i])
+            if j == 0:
+                labels.append("mean " + ALL_FEATURES[i])
+            elif j == 1:
+                labels.append("std " + ALL_FEATURES[i])
+            elif j == 2:
+                labels.append("max " + ALL_FEATURES[i])
+            elif j == 3:
+                labels.append("min " + ALL_FEATURES[i])
+            elif j == 4:
+                labels.append("median " + ALL_FEATURES[i])
 
-    new_features=np.array(new_features)
+    new_features = np.array(new_features)
     os.remove(jsonfile)
 
     return new_features, labels
 
-def allowed_file(filename):
+
+def allowed_file(filename: str) -> bool:
     """Function to determine if file is in the extensions allowed by the pgm.
 
     Args:
         filename (str) -- the name of the file
     """
-    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+    return "." in filename and filename.rsplit(".", 1)[1] in ['mp3']
+
+
+def load_object(filename: str) -> Any:
+    """Helper to load objects with pickle module."""
+    return pickle.load(open(filename, "rb"), encoding="latin1")

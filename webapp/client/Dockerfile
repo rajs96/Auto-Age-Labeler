@@ -1,6 +1,5 @@
 # base image
-# much is adopted from Stephen Grider's course on Docker
-FROM node:alpine as builder
+FROM node:14 as builder
 
 # set working directory
 WORKDIR '/app'
