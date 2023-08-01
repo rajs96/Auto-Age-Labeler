@@ -1,9 +1,8 @@
 # Automatic Age Labeler for Voice Datasets
 
-When creating machine learning models that incorporate voice, the age of the speaker
-can bias datasets. The model might be detecting the difference in age rather
-than the signal of interest. Thus, segmenting age can be used to build custom models
-for speech recognition/acoustic object detection that are more accurate.
+When creating machine learning models that incorporate voice, the age of the
+speaker can be a very useful feature for downstream voice tasks. Categorizing
+the age for unlabeled datasets can be very useful for creating models.
 
 This application provides users an easy way of automatically labeling their voice
 samples with the age category of the speaker. The user simply needs to attach mp3 files,
@@ -39,7 +38,6 @@ docker-compose up --build
 
 ## References
 - [Jim Schwoebel's Voicebook](https://github.com/jim-schwoebel/voicebook)
-- [Stephen Grider's course on Docker](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/)
 
 ## Demo
 ![](gif/age-app-demo.gif)
