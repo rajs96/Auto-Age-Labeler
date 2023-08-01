@@ -35,6 +35,11 @@ contains code for the frontend/API, which can be run using Docker.
 docker-compose up --build
 # now the app is running on localhost
 ```
+### Update:
+PyPI no longer supports building the dependencies that are needed to run the backend,
+(numpy==1.19.5, scikit-learn==0.21.3, tensorflow==2.7.0). To run this container,
+you will need to install Tensorflow 2.7 from the source within your virtualenv
+or Docker container.
 
 ## References
 - [Jim Schwoebel's Voicebook](https://github.com/jim-schwoebel/voicebook)

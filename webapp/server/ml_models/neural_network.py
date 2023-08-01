@@ -2,7 +2,7 @@ import numpy as np
 from constants import MODEL, FEATURE_SELECTOR, SCALER, CLASS_NAMES
 
 
-def model_predict(input: np.ndarray):
+def model_predict(input: np.ndarray) -> np.ndarray:
     """Given input array of featurized audio, returns model prediction
     Args:
         -- input (numpy array) input to put in machine learning model
